@@ -39,6 +39,8 @@ print(card)
 
 
 
+# import modules needed for the program to run
+import random
 
 # Deck of Cards in python
 print("Welcome to the world of Cards")
@@ -48,7 +50,7 @@ class Cards(object):
     def __init__(self, card_suit, card_val):
         self.card_suit = card_suit
         self.card_val = card_val
-    def display(self):
+    def displayCards(self):
         #print value and the suit
         print("{} of {} ".format(self.card_val, self.card_suit))
 class Deck(object):
@@ -63,14 +65,33 @@ class Deck(object):
             for values in range(1,14):
                 # Add up the cards to the List cards using append
                 self.cards.append(Cards(suits, values))
-                print("{} of {} ".format(values,suits))
-
-
+    # create a method to display to the user the cards
+    def showCards(self):
+        for c in self.cards:
+            c.displayCards()
+    # create a method to shuffle the entire deck (import Random from python)
+    def shuffleDeck(self):
+        # shuffle with -1 and in reverse to index 0
+        for x in range(len(self.cards)-1,0,-1):
+            # use randint - random number generator to select cards
+            # the range is form L--->R
+            rand_card_no = random.randint(0,x)
+            #sap the cards
+            self.cards[x],self.cards[rand_card_no] = self.cards[rand_card_no],self.cards[x]
+    # create a method to and return the pop() as end card indication
+    def retrieveCard(self):
+        return self.cards.pop()
+#Now create a player to start playing and make sure to access the deck and add the cards to the players "pocket"
+class GamePlayer(object):
+    # create an emplty list to start from and retreive the cards from the deck addign to the player
+    def __inti__(self):
+        self.pocket = []
 # cards = Cards("Clubs",6)
 # print(cards.display())
 deck = Deck()
-print(deck)
-
+deck.shuffleDeck()
+card = deck.retrieveCard()
+print(card.displayCards())
 
 
 
