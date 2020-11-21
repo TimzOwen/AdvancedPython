@@ -262,3 +262,32 @@ while t < seconds:
     v = rotate(v,angle=moon.varAngularPosition(t,dt.s,m2=2),axis=(0,0,1))
     mo.pos = ea.pos + v
     t += dt.s
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+# assignment 3 Sorting it all out
+
+# checkpoint step one (The city class)
+
+# define the city class and pass in the required arguemnts
+class City:
+    def __init__(self, country_Code,name,region,populations,latitude,longitude):
+        self.country  = country
+        self.name = name
+        self.region = region
+        self.populations =populations
+        self.latitude = latitude
+        self.longitude = longitude
+    
