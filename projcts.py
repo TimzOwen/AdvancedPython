@@ -40,7 +40,36 @@ print(card)
 
 
 
+# Deck of Cards in python
+print("Welcome to the world of Cards")
 
+class Cards(object):
+    #declare a method to take in th suit and value of the cards
+    def __init__(self, card_suit, card_val):
+        self.card_suit = card_suit
+        self.card_val = card_val
+    def display(self):
+        #print value and the suit
+        print("{} of {} ".format(self.card_val, self.card_suit))
+class Deck(object):
+    def __init__(self):
+        # instantiate 2 methods to build the deck and add them in an array
+        self.cards = []
+        self.buildDeck()
+    def buildDeck(self):
+        # loop through all the cards
+        for suits in ["Clubs","Spades","Diamond","Hearts"]:
+            #use the range to add with values
+            for values in range(1,14):
+                # Add up the cards to the List cards using append
+                self.cards.append(Cards(suits, values))
+                print("{} of {} ".format(values,suits))
+
+
+# cards = Cards("Clubs",6)
+# print(cards.display())
+deck = Deck()
+print(deck)
 
 
 
