@@ -38,7 +38,6 @@ card = Card(12, 4)
 print(card)
 
 
-
 # import modules needed for the program to run
 import random
 
@@ -84,14 +83,27 @@ class Deck(object):
 #Now create a player to start playing and make sure to access the deck and add the cards to the players "pocket"
 class GamePlayer(object):
     # create an emplty list to start from and retreive the cards from the deck addign to the player
-    def __inti__(self):
+    def __init__(self,playerName):
+        self.playerName = playerName
         self.pocket = []
+    # create a method to add the cards to the pocket from the deck
+    def retreive(self, deck):
+        self.pocket.append(deck.retrieveCard())
+    # check player's card
+    def checkPocket(self):
+        for playerCards in self.pocket:
+            playerCards.displayCards()
 # cards = Cards("Clubs",6)
 # print(cards.display())
 deck = Deck()
 deck.shuffleDeck()
-card = deck.retrieveCard()
-print(card.displayCards())
+
+owen = GamePlayer("OWen")
+owen.retreive(deck)
+print(owen.checkPocket())
+
+# card = deck.retrieveCard()
+# print(card.displayCards())
 
 
 
